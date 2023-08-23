@@ -9,7 +9,7 @@ trait StateRelations
 {
     public function country()
     {
-        return $this->hasMany(Country::class);
+        return $this->belongsTo(Country::class);
     }
 
     public function cities()

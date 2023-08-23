@@ -24,10 +24,4 @@ class State extends Model
     protected $casts = [
         'deleted_at' => 'datetime',
     ];
-
-    public function country()
-    {
-        return $this->belongsTo(Country::class);
-    }
-
 }

@@ -55,7 +55,9 @@ class StateController extends Controller
     {
         abort_if(Gate::denies('edit_states'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('world::states.edit', compact('state'));
+        $countries = Country::all();
+
+        return view('world::states.edit', compact('state', 'countries'));
     }
 
     public function update(StateUpdateRequest $request, State $state)

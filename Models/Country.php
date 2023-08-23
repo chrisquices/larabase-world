@@ -5,6 +5,7 @@ namespace Modules\World\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\World\Models\Accessors\CountryAccessors;
 use Modules\World\Models\Relations\CountryRelations;
 
 class Country extends Model
@@ -12,6 +13,7 @@ class Country extends Model
 
     use HasFactory, SoftDeletes;
     use CountryRelations;
+    use CountryAccessors;
 
     protected $fillable = [
         'iso2',
@@ -29,12 +31,5 @@ class Country extends Model
     protected $casts = [
         'deleted_at' => 'datetime',
     ];
-
-    public function getTranslation($key)
-    {
-        $translations = json_decode($this->translations, true);
-
-        return $translations[$key] ?? null;
-    }
 
 }

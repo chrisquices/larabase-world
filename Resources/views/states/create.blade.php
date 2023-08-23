@@ -11,7 +11,7 @@
         <x-card class="!py-0">
             <div class="px-2.5 divide-y-[1px] divide-slate-200 dark:divide-slate-700">
                 <x-form.row>
-                    <x-text-label for="region">{{ __('world::general.region') }}</x-text-label>
+                    <x-text-label for="country_id">{{ __('world::general.country') }}</x-text-label>
 
                     <x-slot name="input">
                         <x-select id="country_id" class="tom-select" required>
@@ -21,7 +21,7 @@
                                 </option>
                             @endforeach
                         </x-select>
-                        <x-input-error name="region"/>
+                        <x-input-error name="country_id"/>
                     </x-slot>
                 </x-form.row>
 
