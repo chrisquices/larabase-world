@@ -16,23 +16,23 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 4; $i++) {
-            $jsonFile = file_get_contents(base_path("Modules/World/Resources/js/cities_$i.json"));
-            $data = json_decode($jsonFile, true);
-
-            foreach ($data as $item) {
-
-                $state = State::where('name', $item['state_name'])->first();
-
-                if ($state) {
-                    City::create([
-                        "state_id"  => $state->id,
-                        "name"      => $item['name'],
-                        "latitude"  => $item['latitude'],
-                        "longitude" => $item['longitude'],
-                    ]);
-                }
-            }
-        }
+//        for ($i = 1; $i < 4; $i++) {
+//            $jsonFile = file_get_contents(base_path("Modules/World/Resources/js/cities_$i.json"));
+//            $data = json_decode($jsonFile, true);
+//
+//            foreach ($data as $item) {
+//
+//                $state = State::where('name', $item['state_name'])->first();
+//
+//                if ($state) {
+//                    City::create([
+//                        "state_id"  => $state->id,
+//                        "name"      => $item['name'],
+//                        "latitude"  => $item['latitude'],
+//                        "longitude" => $item['longitude'],
+//                    ]);
+//                }
+//            }
+//        }
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
 use Modules\World\Http\Requests\CountryStoreRequest;
 use Modules\World\Http\Requests\CountryUpdateRequest;
+use Modules\World\Models\City;
 use Modules\World\Models\Country;
 
 class CountryController extends Controller
@@ -15,31 +16,6 @@ class CountryController extends Controller
     public function index()
     {
         abort_if(Gate::denies('list_countries'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-//
-//        $items = Http::get('https://raw.githubusercontent.com/nnjeim/world/master/resources/json/currencies.json');
-//        $items = json_decode($items->getBody());
-//
-//        $test = [];
-//
-//        return $items;
-//
-//        foreach ($items as $item) {
-//            $itemExists = State::where('name', $item->name)->first();
-//
-//            if (!$itemExists) {
-//                $test[] = [
-//                    "country_name" => $item->country_name,
-//                    "state_name"   => $item->state_name,
-//                    'name'         => $item->name,
-//                    'code'         => $item->state_code,
-//                    'latitude'     => $item->latitude,
-//                    'longitude'    => $item->longitude,
-//                ];
-//            }
-//        }
-
-//        return json_encode($test);
 
         return view('world::countries.index');
     }
